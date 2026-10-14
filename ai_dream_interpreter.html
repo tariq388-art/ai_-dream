@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعبیرِ خواب AI - Dream Interpretation Platform</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        night: {
+                            900: '#0B0F19',
+                            800: '#111827',
+                            700: '#1F2937',
+                            600: '#374151'
+                        },
+                        amberGold: {
+                            400: '#FBBF24',
+                            500: '#F59E0B',
+                            600: '#D97706',
+                            300: '#FDE68A'
+                        },
+                        emeraldSpiritual: {
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065F46'
+                        }
+                    },
+                    fontFamily: {
+                        urdu: ['Noto Nastaliq Urdu', 'Jameel Noori Nastaliq', 'Gulzar', 'serif'],
+                        english: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts for Urdu & English -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gulzar&family=Inter:wght@300;400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background: radial-gradient(circle at top center, #1e1b4b 0%, #0b0f19 70%);
+            min-height: 100vh;
+            color: #f3f4f6;
+        }
+        
+        .urdu-font {
+            font-family: 'Noto Nastaliq Urdu', 'Gulzar', serif;
+            line-height: 2.2;
+        }
+
+        .english-font {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Star Animation Backdrop */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: pulseStar var(--duration) infinite ease-in-out;
+        }
+
+        @keyframes pulseStar {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(245, 158, 11, 0.15);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .glass-card-amber {
+            background: rgba(245, 158, 11, 0.05);
+            border: 1px solid rgba(245, 158, 11, 0.25);
+        }
+
+        /* Glowing Effects */
+        .glow-amber {
+            box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #374151;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+    </style>
+</head>
+<body class="urdu-font overflow-x-hidden relative text-gray-100">
+
+    <!-- Starry Backdrop -->
+    <div class="stars-container" id="starsContainer"></div>
+
+    <div class="relative z-10 flex flex-col min-h-screen">
+        
+        <!-- TOP AD BANNER PLACEHOLDER -->
+        <div class="w-full bg-night-900/80 border-b border-amberGold-500/10 py-2 text-center text-xs text-gray-500">
+            <div class="max-w-4xl mx-auto h-12 bg-night-800/50 rounded flex items-center justify-center border border-dashed border-gray-700">
+                <span class="text-gray-400 text-xs flex items-center gap-2">
+                    <i class="fa-solid fa-rectangle-ad text-amberGold-500">
+                    </i>
+                    <span id="adTextTop">گوگل ایڈسینس یا ایڈورٹائزمنٹ بینر کی جگہ (Top Banner)</span>
+                </span>
+            </div>
+        </div>
+
+        <!-- HEADER & NAVIGATION -->
+        <header class="border-b border-amberGold-500/20 bg-night-900/90 backdrop-blur-md sticky top-0 z-50">
+            <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
+                
+                <!-- Logo & Branding -->
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-amberGold-600 via-amberGold-400 to-indigo-900 flex items-center justify-center text-2xl text-night-900 shadow-lg shadow-amberGold-500/20">
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl md:text-2xl font-bold text-amberGold-400 tracking-wide flex items-center gap-2" id="appTitle">
+                            تعبیرِ خواب AI
+                        </h1>
+                        <p class="text-xs text-gray-400 font-sans tracking-wide" id="appSubTitle">
+                            Islamic & Psychological Dream Interpretation
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Action Controls -->
+                <div class="flex items-center gap-3 flex-wrap">
+                    <!-- History Button -->
+                    <button onclick="toggleHistoryModal()" class="px-3 py-1.5 rounded-lg bg-night-800 border border-gray-700 hover:border-amberGold-500 text-xs text-gray-300 hover:text-amberGold-400 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-clock-rotate-left text-amberGold-500"></i>
+                        <span id="btnHistory">سابقہ تعبیرات</span>
+                    </button>
+
+                    <!-- API Key Settings -->
+                    <button onclick="toggleApiModal()" class="px-3 py-1.5 rounded-lg bg-night-800 border border-gray-700 hover:border-amberGold-500 text-xs text-gray-300 hover:text-amberGold-400 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-key text-amberGold-500"></i>
+                        <span id="btnApiKey">Gemini API Key</span>
+                    </button>
+
+                    <!-- Language Selector Toggle -->
+                    <button onclick="toggleLanguage()" class="px-3 py-1.5 rounded-lg bg-amberGold-500/10 border border-amberGold-500/30 text-amberGold-400 hover:bg-amberGold-500/20 text-xs font-sans font-medium transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-globe"></i>
+                        <span id="currentLangLabel">English</span>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT CONTAINER -->
+        <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- LEFT/MAIN FORM & RESULT SECTION (Cols 8) -->
+            <div class="lg:col-span-8 flex flex-col gap-6">
+                
+                <!-- DREAM INPUT CARD -->
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden">
+                    <!-- Decorative Moon Glow Background -->
+                    <div class="absolute -top-12 -left-12 w-32 h-32 bg-amberGold-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <div class="flex items-center justify-between mb-4 border-b border-gray-800 pb-3">
+                        <h2 class="text-lg md:text-xl font-bold text-amberGold-300 flex items-center gap-2" id="inputHeading">
+                            <i class="fa-solid fa-feather-pointed text-amberGold-500"></i>
+                            اپنا خواب درج کریں
+                        </h2>
+                        <span class="text-xs text-amberGold-400/80 bg-amberGold-500/10 px-2.5 py-1 rounded-full border border-amberGold-500/20 font-sans" id="aiStatusBadge">
+                            ✨ AI Powered
+                        </span>
+                    </div>
+
+                    <!-- Dream Form -->
+                    <form id="dreamForm" onsubmit="handleDreamSubmit(event)" class="flex flex-col gap-5">
+                        
+                        <!-- Dream Textarea -->
+                        <div>
+                            <label for="dreamText" class="block text-sm text-gray-300 mb-2" id="dreamTextLabel">
+                                خواب کی تفصیل لکھیں یا کہیں (جیسے: میں نے خواب میں ندی کا بہتا پانی اور پرندے دیکھے...):
+                            </label>
+                            <div class="relative">
+                                <textarea id="dreamText" rows="5" required
+                                    class="w-full bg-night-800/90 border border-gray-700 focus:border-amberGold-500 rounded-xl p-4 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amberGold-500/20 text-base transition resize-y"
+                                    placeholder="اپنا خواب یہاں مفصل بیان کریں..."></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Config Selectors Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            
+                            <!-- Perspective Selector -->
+                            <div>
+                                <label class="block text-xs text-gray-400 mb-1.5" id="perspectiveLabel">تعبیر کا نقطہ نظر (Perspective):</label>
+                                <select id="perspectiveSelect" class="w-full bg-night-800 border border-gray-700 focus:border-amberGold-500 rounded-lg p-2.5 text-sm text-gray-200 focus:outline-none">
+                                    <option value="islamic" selected>اسلامی نقطہ نظر (Ibn Sirin & Scholars)</option>
+                                    <option value="psychological">عمومی و نفسیاتی تعبیر (General / Psychological)</option>
+                                </select>
+                            </div>
+
+                            <!-- Output Language Selector -->
+                            <div>
+                                <label class="block text-xs text-gray-400 mb-1.5" id="outputLangLabel">تعبیر کی زبان (Output Language):</label>
+                                <select id="outputLangSelect" class="w-full bg-night-800 border border-gray-700 focus:border-amberGold-500 rounded-lg p-2.5 text-sm text-gray-200 focus:outline-none">
+                                    <option value="ur" selected>اردو (Urdu)</option>
+                                    <option value="en">English (انگریزی)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Submit CTA Button -->
+                        <button type="submit" id="submitBtn" 
+                            class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-amberGold-600 via-amberGold-500 to-amberGold-600 hover:from-amberGold-500 hover:to-amberGold-400 text-night-900 font-bold text-base md:text-lg shadow-lg shadow-amberGold-500/20 hover:shadow-amberGold-500/30 transition transform active:scale-[0.99] flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                            <span id="btnSubmitText">خواب کی تعبیر معلوم کریں</span>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- LOADING STATE -->
+                <div id="loadingCard" class="hidden glass-card rounded-2xl p-8 text-center flex flex-col items-center justify-center gap-4">
+                    <div class="w-16 h-16 border-4 border-amberGold-500/20 border-t-amberGold-500 rounded-full animate-spin"></div>
+                    <p class="text-amberGold-400 font-medium text-lg animate-pulse" id="loadingText">
+                        خواب کا تجزیہ اور تعبیر تیار کی جا رہی ہے...
+                    </p>
+                    <p class="text-xs text-gray-400" id="loadingSubText">
+                        مستند اسلامی ذرائع اور علامتی اشاروں کا مطالعہ جاری ہے
+                    </p>
+                </div>
+
+                <!-- INTERPRETATION RESULT DISPLAY CARD -->
+                <div id="resultCard" class="hidden glass-card rounded-2xl p-6 md:p-8 flex flex-col gap-6 relative border-2 border-amberGold-500/30">
+                    
+                    <!-- Top Result Bar -->
+                    <div class="flex flex-wrap items-center justify-between border-b border-gray-800 pb-4 gap-2">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-scroll text-2xl text-amberGold-400"></i>
+                            <h3 class="text-xl font-bold text-amberGold-300" id="resultHeading">
+                                تعبیرِ خواب کی تفصیلات
+                            </h3>
+                        </div>
+                        <div class="flex items-center gap-2 text-xs">
+                            <span id="resPerspectiveTag" class="px-2.5 py-1 rounded-md bg-emeraldSpiritual-800/40 text-emerald-300 border border-emerald-500/30">
+                                اسلامی نقطہ نظر
+                            </span>
+                            <span id="resLangTag" class="px-2.5 py-1 rounded-md bg-night-800 text-gray-300 border border-gray-700">
+                                اردو
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Dream Summary Box -->
+                    <div class="glass-card-amber rounded-xl p-4">
+                        <h4 class="text-xs uppercase font-bold text-amberGold-400 mb-1" id="resSummaryTitle">خواب کا خلاصہ (Dream Summary)</h4>
+                        <p id="resDreamSummary" class="text-sm text-gray-300 italic">"..."</p>
+                    </div>
+
+                    <!-- Key Symbols Identified -->
+                    <div>
+                        <h4 class="text-sm font-bold text-amberGold-400 mb-2 flex items-center gap-2" id="resSymbolsTitle">
+                            <i class="fa-solid fa-key text-xs"></i>
+                            خواب کی اہم علامات (Key Symbols):
+                        </h4>
+                        <div id="resSymbolsList" class="flex flex-wrap gap-2">
+                            <!-- Dynamic Tag Pills -->
+                        </div>
+                    </div>
+
+                    <!-- Main Interpretation Body -->
+                    <div class="space-y-4">
+                        <h4 class="text-sm font-bold text-amberGold-400 flex items-center gap-2" id="resBodyTitle">
+                            <i class="fa-solid fa-book-open-reader text-xs"></i>
+                            تفصیلی تعبیر (Detailed Interpretation):
+                        </h4>
+                        <div id="resInterpretationBody" class="text-gray-200 text-base leading-relaxed space-y-3 bg-night-800/40 p-4 rounded-xl border border-gray-800/80">
+                            <!-- Paragraphs inserted here -->
+                        </div>
+                    </div>
+
+                    <!-- Spiritual Advice / Recommendations -->
+                    <div id="resAdviceBox" class="bg-emeraldSpiritual-800/20 border border-emeraldSpiritual-600/30 rounded-xl p-4">
+                        <h4 class="text-sm font-bold text-emerald-400 mb-2 flex items-center gap-2" id="resAdviceTitle">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                            روحانی رہنمائی و مسنون تدابیر (Advice & Spiritual Steps):
+                        </h4>
+                        <div id="resAdviceText" class="text-xs md:text-sm text-emerald-200/90 space-y-1.5">
+                            <!-- Recommendations -->
+                        </div>
+                    </div>
+
+                    <!-- Important Disclaimer -->
+                    <div class="text-xs text-gray-500 bg-night-900/60 p-3 rounded-lg border border-gray-800 flex items-start gap-2">
+                        <i class="fa-solid fa-triangle-exclamation text-amberGold-500/80 text-sm mt-0.5"></i>
+                        <p id="disclaimerText">
+                            **اہم نوٹ:** خوابوں کی تعبیر ایک علامتی اور روحانی اندازہ ہوتی ہے، حتمی حقیقت صرف اللہ تعالیٰ کے علم میں ہے۔ برے خواب کی صورت میں بائیں جانب تین بار تھوکریں اور دعا کا اہتمام کریں۔
+                        </p>
+                    </div>
+
+                    <!-- Action Bar -->
+                    <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-gray-800">
+                        <div class="flex items-center gap-2">
+                            <button onclick="copyInterpretation()" class="px-4 py-2 rounded-lg bg-night-800 hover:bg-night-700 border border-gray-700 text-xs text-gray-200 transition flex items-center gap-1.5">
+                                <i class="fa-regular fa-copy text-amberGold-400"></i>
+                                <span id="btnCopy">تعبیر کاپی کریں</span>
+                            </button>
+                            <button onclick="shareInterpretation()" class="px-4 py-2 rounded-lg bg-night-800 hover:bg-night-700 border border-gray-700 text-xs text-gray-200 transition flex items-center gap-1.5">
+                                <i class="fa-solid fa-share-nodes text-amberGold-400"></i>
+                                <span id="btnShare">شیئر کریں</span>
+                            </button>
+                        </div>
+                        <button onclick="resetDreamForm()" class="px-4 py-2 rounded-lg bg-amberGold-500/10 hover:bg-amberGold-500/20 border border-amberGold-500/30 text-xs text-amberGold-400 transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-rotate-right"></i>
+                            <span id="btnNewDream">نیا خواب درج کریں</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- MIDDLE AD BANNER PLACEHOLDER -->
+                <div class="w-full my-2">
+                    <div class="h-20 bg-night-800/40 rounded-xl border border-dashed border-gray-800 flex items-center justify-center text-xs text-gray-500">
+                        <span id="adTextMiddle" class="flex items-center gap-2">
+                            <i class="fa-solid fa-rectangle-ad text-amberGold-500"></i>
+                            ایڈسینس ڈسپلے اشتہار (Middle In-Feed Ad Unit)
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDEBAR (Cols 4) -->
+            <div class="lg:col-span-4 flex flex-col gap-6">
+                
+                <!-- Quick Symbol Guide Card -->
+                <div class="glass-card rounded-2xl p-5">
+                    <h3 class="text-base font-bold text-amberGold-300 mb-3 border-b border-gray-800 pb-2 flex items-center justify-between" id="symbolGuideHeading">
+                        <span>عام علامتوں کی تعبیر</span>
+                        <i class="fa-solid fa-compass text-amberGold-500"></i>
+                    </h3>
+                    <p class="text-xs text-gray-400 mb-3" id="symbolGuideSub">کسی بھی علامت پر کلک کر کے نمونہ خواب حاصل کریں:</p>
+                    
+                    <div class="flex flex-wrap gap-2" id="quickSymbolPills">
+                        <button onclick="fillSampleDream('پانی')" class="px-2.5 py-1 rounded-md bg-night-800 border border-gray-700 hover:border-amberGold-500 text-xs text-gray-300 hover:text-amberGold-400 transition">🌊 پانی (Water)</button>
+                        <button onclick="fillSampleDream('شیر')" class="px-2.5 py-1 rounded-md bg-night-800 border border-gray-700 hover:border-amberGold-500 text-xs text-gray-300 hover:text-amberGold-400 transition">🦁 شیر (Lion)</button>
+                        <button onclick="fillSampleDream('سانپ')" class="px-2.5 py-1 rounded-md bg-night-800 border border-gray-700 hover:border-amberGold-500 text-xs text-gray-300 hover:text-amberGold-400 transition">🐍 سانپ (Snake)</button>
+                        <button onclick="fillSampleDream('اڑنا')" class="px-2.5 py-1 rounded-md bg-night-800 border border-gray-700 hover:border-amberGold-500 text-xs text-gray-300 hover:text-amberGold-400 transition">🕊️ اڑنا (Flying)</button>
+                        <button onclick="fillSampleDream('بارش')" class="px-2.5 py-1 rounded-md bg-night-800 border border-gray-700 hover:border-amberGold-500 text-xs text-gray-300 hover:text-amberGold-400 transition">🌧️ بارش (Rain)</button>
+                        <button onclick="fillSampleDream('سونا')" class="px-2.5 py-1 rounded-md bg-night-800 border border-gray-700 hover:border-amberGold-500 text-xs text-gray-300 hover:text-amberGold-400 transition">🪙 سونا / روپیہ (Gold)</button>
+                        <button onclick="fillSampleDream('دانت گرنا')" class="px-2.5 py-1 rounded-md bg-night-800 border border-gray-700 hover:border-amberGold-500 text-xs text-gray-300 hover:text-amberGold-400 transition">🦷 دانت گرنا (Teeth)</button>
+                    </div>
+                </div>
+
+                <!-- Islamic Guidelines & Etiquette Card -->
+                <div class="glass-card rounded-2xl p-5 border border-emeraldSpiritual-600/30">
+                    <h3 class="text-base font-bold text-emerald-400 mb-3 border-b border-gray-800 pb-2 flex items-center gap-2" id="etiquetteHeading">
+                        <i class="fa-solid fa-mosque"></i>
+                        آدابِ تعبیر و خواب
+                    </h3>
+                    <ul class="text-xs text-gray-300 space-y-2.5 list-disc list-inside" id="etiquetteList">
+                        <li>**اچھا خواب:** اللہ کی نعمت سمجھیں اور صرف خیرخواہ سے بیان کریں۔</li>
+                        <li>**برا خواب:** بائیں جانب تین بار تھوکریں، "اعوذ باللہ" پڑھیں اور کسی کو نہ بتائیں۔</li>
+                        <li>**صدقہ:** ناگہانی پریشانی دور کرنے کے لیے صدقہ دیں۔</li>
+                        <li>تعبیر کا اصل علم اللہ پاک ہی کے پاس ہے۔</li>
+                    </ul>
+                </div>
+
+                <!-- SIDEBAR AD BANNER PLACEHOLDER -->
+                <div class="glass-card rounded-2xl p-4 text-center">
+                    <div class="h-64 bg-night-800/40 rounded-xl border border-dashed border-gray-800 flex flex-col items-center justify-center p-4 text-xs text-gray-500 gap-2">
+                        <i class="fa-solid fa-rectangle-ad text-3xl text-amberGold-500/60"></i>
+                        <span id="adTextSidebar">سائیڈ بار اشتہار کی جگہ (300x250 Ad Banner Slot)</span>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="mt-auto border-t border-gray-800 bg-night-900/90 py-6 text-center text-xs text-gray-500">
+            <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-moon text-amberGold-500"></i>
+                    <span>تعبیرِ خواب AI &copy; 2026 - جملہ حقوق محفوظ ہیں۔</span>
+                </div>
+                <p id="footerDisclaimer">
+                    یہ ویب سائٹ مصنوعی ذہانت اور مستند اسلامی کتب کی روشنی میں تعبیرات فراہم کرتی ہے۔
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- API KEY MODAL -->
+    <div id="apiModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card rounded-2xl max-w-md w-full p-6 flex flex-col gap-4 border border-amberGold-500/30">
+            <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                <h3 class="text-lg font-bold text-amberGold-300 flex items-center gap-2" id="modalApiTitle">
+                    <i class="fa-solid fa-key text-amberGold-500"></i>
+                    Gemini API Key سیٹنگز
+                </h3>
+                <button onclick="toggleApiModal()" class="text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <p class="text-xs text-gray-300" id="modalApiDesc">
+                اگر آپ کے پاس اپنی Google Gemini API کی ہے تو یہاں درج کریں۔ بصورتِ دیگر سسٹم خودکار طریقے سے انٹریکٹو AI سمیلیٹر موڈ میں چلے گا۔
+            </p>
+
+            <div>
+                <label class="block text-xs text-gray-400 mb-1" id="modalApiLabel">Gemini API Key:</label>
+                <input type="password" id="userApiKeyInput" placeholder="AIzaSy..." 
+                    class="w-full bg-night-800 border border-gray-700 focus:border-amberGold-500 rounded-lg p-2.5 text-sm text-gray-200 focus:outline-none font-mono">
+            </div>
+
+            <div class="flex items-center justify-end gap-2 pt-2">
+                <button onclick="saveApiKey()" class="px-4 py-2 rounded-lg bg-amberGold-500 hover:bg-amberGold-400 text-night-900 font-bold text-xs transition">
+                    <span id="btnSaveApiKey">محفوظ کریں</span>
+                </button>
+                <button onclick="clearApiKey()" class="px-3 py-2 rounded-lg bg-night-800 hover:bg-night-700 text-gray-300 text-xs transition">
+                    <span id="btnClearApiKey">کی (Key) حذف کریں</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- HISTORY MODAL -->
+    <div id="historyModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card rounded-2xl max-w-2xl w-full p-6 flex flex-col gap-4 max-h-[80vh] border border-amberGold-500/30">
+            <div class="flex items-center justify-between border-b border-gray-800 pb-3">
+                <h3 class="text-lg font-bold text-amberGold-300 flex items-center gap-2" id="modalHistoryTitle">
+                    <i class="fa-solid fa-clock-rotate-left text-amberGold-500"></i>
+                    محفوظ شدہ تعبیرات (Saved History)
+                </h3>
+                <button onclick="toggleHistoryModal()" class="text-gray-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <div id="historyContainer" class="overflow-y-auto space-y-3 pr-2">
+                <!-- History Items JS Dynamic Render -->
+            </div>
+
+            <div class="flex items-center justify-between pt-2 border-t border-gray-800">
+                <button onclick="clearHistory()" class="px-3 py-1.5 rounded-lg bg-red-900/30 border border-red-700/50 hover:bg-red-900/50 text-red-300 text-xs transition">
+                    <span id="btnClearHistory">تمام ہسٹری ختم کریں</span>
+                </button>
+                <button onclick="toggleHistoryModal()" class="px-4 py-1.5 rounded-lg bg-night-800 hover:bg-night-700 text-gray-300 text-xs transition">
+                    <span id="btnCloseHistory">بند کریں</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // GLOBAL APP STATE
+        let currentLang = 'ur'; // 'ur' or 'en'
+        let currentInterpretation = null;
+
+        // DICTIONARY FOR TRANSLATIONS
+        const i18n = {
+            ur: {
+                appTitle: "تعبیرِ خواب AI",
+                appSubTitle: "اسلامی و عمومی خوابوں کی AI تعبیر",
+                btnHistory: "سابقہ تعبیرات",
+                btnApiKey: "Gemini API Key",
+                inputHeading: "اپنا خواب درج کریں",
+                dreamTextLabel: "خواب کی تفصیل لکھیں (جیسے: میں نے خواب میں ندی کا بہتا پانی دیکھا...):",
+                dreamPlaceholder: "اپنا خواب یہاں مفصل بیان کریں...",
+                perspectiveLabel: "تعبیر کا نقطہ نظر (Perspective):",
+                outputLangLabel: "تعبیر کی زبان (Output Language):",
+                optIslamic: "اسلامی نقطہ نظر (Ibn Sirin & Scholars)",
+                optPsychological: "عمومی و نفسیاتی تعبیر (General / Psychological)",
+                btnSubmitText: "خواب کی تعبیر معلوم کریں",
+                loadingText: "خواب کا تجزیہ اور تعبیر تیار کی جا رہی ہے...",
+                loadingSubText: "مستند اسلامی ذرائع اور علامتی اشاروں کا مطالعہ جاری ہے",
+                resultHeading: "تعبیرِ خواب کی تفصیلات",
+                resSummaryTitle: "خواب کا خلاصہ (Dream Summary)",
+                resSymbolsTitle: "خواب کی اہم علامات (Key Symbols):",
+                resBodyTitle: "تفصیلی تعبیر (Detailed Interpretation):",
+                resAdviceTitle: "روحانی رہنمائی و مسنون تدابیر (Advice & Spiritual Steps):",
+                disclaimerText: "ہمیشہ یاد رکھیں! خوابوں کی تعبیر ایک علامتی اور روحانی اندازہ ہوتی ہے، حتمی حقیقت صرف اللہ تعالیٰ کے علم میں ہے۔ برے خواب کی صورت میں بائیں جانب تین بار تھوکریں اور دعا کا اہتمام کریں۔",
+                btnCopy: "تعبیر کاپی کریں",
+                btnShare: "شیئر کریں",
+                btnNewDream: "نیا خواب درج کریں",
+                symbolGuideHeading: "عام علامتوں کی تعبیر",
+                symbolGuideSub: "کسی بھی علامت پر کلک کر کے نمونہ خواب حاصل کریں:",
+                etiquetteHeading: "آدابِ تعبیر و خواب",
+                modalApiTitle: "Gemini API Key سیٹنگز",
+                modalApiDesc: "اگر آپ کے پاس اپنی Google Gemini API کی ہے تو یہاں درج کریں۔ بصورتِ دیگر سسٹم خودکار طریقے سے انٹریکٹو AI سمیلیٹر موڈ میں چلے گا۔",
+                modalApiLabel: "Gemini API Key:",
+                btnSaveApiKey: "محفوظ کریں",
+                btnClearApiKey: "کی (Key) حذف کریں",
+                modalHistoryTitle: "محفوظ شدہ تعبیرات (Saved History)",
+                btnClearHistory: "تمام ہسٹری ختم کریں",
+                btnCloseHistory: "بند کریں",
+                adTextTop: "گوگل ایڈسینس یا ایڈورٹائزمنٹ بینر کی جگہ (Top Banner)",
+                adTextMiddle: "ایڈسینس ڈسپلے اشتہار (Middle In-Feed Ad Unit)",
+                adTextSidebar: "سائیڈ بار اشتہار کی جگہ (300x250 Ad Banner Slot)",
+                copySuccess: "تعبیر کاپی ہو گئی ہے!"
+            },
+            en: {
+                appTitle: "Dream Interpreter AI",
+                appSubTitle: "Islamic & Psychological Dream Analysis",
+                btnHistory: "Interpretation History",
+                btnApiKey: "Gemini API Key",
+                inputHeading: "Describe Your Dream",
+                dreamTextLabel: "Write or paste details of your dream (e.g. I saw flowing river water and white birds...):",
+                dreamPlaceholder: "Describe your dream in detail here...",
+                perspectiveLabel: "Interpretation Perspective:",
+                outputLangLabel: "Output Language:",
+                optIslamic: "Islamic Perspective (Ibn Sirin & Scholars)",
+                optPsychological: "General / Psychological Perspective",
+                btnSubmitText: "Interpret Dream Now",
+                loadingText: "Analyzing dream symbols & generating interpretation...",
+                loadingSubText: "Consulting classical Islamic sources and psychological symbols...",
+                resultHeading: "Dream Interpretation Details",
+                resSummaryTitle: "Dream Summary",
+                resSymbolsTitle: "Key Symbols Identified:",
+                resBodyTitle: "Detailed Interpretation:",
+                resAdviceTitle: "Guidance & Recommended Steps:",
+                disclaimerText: "Note: Dream interpretations are symbolic reflections and spiritual possibilities, not absolute predictions. Ultimate knowledge belongs to God alone.",
+                btnCopy: "Copy Interpretation",
+                btnShare: "Share",
+                btnNewDream: "Interpret Another Dream",
+                symbolGuideHeading: "Common Symbol Guide",
+                symbolGuideSub: "Click any symbol to test a sample dream:",
+                etiquetteHeading: "Etiquettes of Dreams",
+                modalApiTitle: "Gemini API Key Settings",
+                modalApiDesc: "Enter your custom Google Gemini API Key below. If left blank, the built-in intelligent AI simulation engine will handle requests.",
+                modalApiLabel: "Gemini API Key:",
+                btnSaveApiKey: "Save Key",
+                btnClearApiKey: "Remove Key",
+                modalHistoryTitle: "Saved Interpretation History",
+                btnClearHistory: "Clear All History",
+                btnCloseHistory: "Close",
+                adTextTop: "Google AdSense Placeholder (Top Leaderboard Banner)",
+                adTextMiddle: "Google AdSense In-Feed Responsive Ad Slot",
+                adTextSidebar: "AdSense Sidebar Slot (300x250 Medium Rectangle)",
+                copySuccess: "Interpretation copied to clipboard!"
+            }
+        };
+
+        // INITIALIZE APP ON DOM LOAD
+        window.onload = function() {
+            generateStars();
+            loadApiKey();
+            updateUI();
+        };
+
+        // GENERATE BACKGROUND STARS
+        function generateStars() {
+            const container = document.getElementById('starsContainer');
+            const count = 40;
+            for (let i = 0; i < count; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                const size = Math.random() * 3 + 1;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.setProperty('--duration', `${Math.random() * 3 + 2}s`);
+                container.appendChild(star);
+            }
+        }
+
+        // TOGGLE LANGUAGE (URDU <-> ENGLISH)
+        function toggleLanguage() {
+            currentLang = currentLang === 'ur' ? 'en' : 'ur';
+            const html = document.documentElement;
+            
+            if (currentLang === 'ur') {
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ur');
+                document.body.classList.remove('english-font');
+                document.body.classList.add('urdu-font');
+                document.getElementById('currentLangLabel').innerText = 'English';
+                document.getElementById('outputLangSelect').value = 'ur';
+            } else {
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', 'en');
+                document.body.classList.remove('urdu-font');
+                document.body.classList.add('english-font');
+                document.getElementById('currentLangLabel').innerText = 'اردو';
+                document.getElementById('outputLangSelect').value = 'en';
+            }
+
+            updateUI();
+        }
+
+        // UPDATE UI TEXT BASED ON CURRENT LANG
+        function updateUI() {
+            const t = i18n[currentLang];
+            document.getElementById('appTitle').innerText = t.appTitle;
+            document.getElementById('appSubTitle').innerText = t.appSubTitle;
+            document.getElementById('btnHistory').innerText = t.btnHistory;
+            document.getElementById('btnApiKey').innerText = t.btnApiKey;
+            document.getElementById('inputHeading').innerText = t.inputHeading;
+            document.getElementById('dreamTextLabel').innerText = t.dreamTextLabel;
+            document.getElementById('dreamText').placeholder = t.dreamPlaceholder;
+            document.getElementById('perspectiveLabel').innerText = t.perspectiveLabel;
+            document.getElementById('outputLangLabel').innerText = t.outputLangLabel;
+            document.getElementById('submitBtn').querySelector('#btnSubmitText').innerText = t.btnSubmitText;
+            document.getElementById('loadingText').innerText = t.loadingText;
+            document.getElementById('loadingSubText').innerText = t.loadingSubText;
+            document.getElementById('resultHeading').innerText = t.resultHeading;
+            document.getElementById('resSummaryTitle').innerText = t.resSummaryTitle;
+            document.getElementById('resSymbolsTitle').innerText = t.resSymbolsTitle;
+            document.getElementById('resBodyTitle').innerText = t.resBodyTitle;
+            document.getElementById('resAdviceTitle').innerText = t.resAdviceTitle;
+            document.getElementById('disclaimerText').innerText = t.disclaimerText;
+            document.getElementById('btnCopy').innerText = t.btnCopy;
+            document.getElementById('btnShare').innerText = t.btnShare;
+            document.getElementById('btnNewDream').innerText = t.btnNewDream;
+            document.getElementById('symbolGuideHeading').querySelector('span').innerText = t.symbolGuideHeading;
+            document.getElementById('symbolGuideSub').innerText = t.symbolGuideSub;
+            document.getElementById('etiquetteHeading').innerText = t.etiquetteHeading;
+            document.getElementById('modalApiTitle').innerText = t.modalApiTitle;
+            document.getElementById('modalApiDesc').innerText = t.modalApiDesc;
+            document.getElementById('modalApiLabel').innerText = t.modalApiLabel;
+            document.getElementById('btnSaveApiKey').innerText = t.btnSaveApiKey;
+            document.getElementById('btnClearApiKey').innerText = t.btnClearApiKey;
+            document.getElementById('modalHistoryTitle').innerText = t.modalHistoryTitle;
+            document.getElementById('btnClearHistory').innerText = t.btnClearHistory;
+            document.getElementById('btnCloseHistory').innerText = t.btnCloseHistory;
+            document.getElementById('adTextTop').innerText = t.adTextTop;
+            document.getElementById('adTextMiddle').innerText = t.adTextMiddle;
+            document.getElementById('adTextSidebar').innerText = t.adTextSidebar;
+
+            // Etiquette list update
+            const etiquetteList = document.getElementById('etiquetteList');
+            if (currentLang === 'ur') {
+                etiquetteList.innerHTML = `
+                    <li><b>اچھا خواب:</b> اللہ تعالی کی نعمت سمجهیں اور کسی خیرخواہ سے بیان کریں۔</li>
+                    <li><b>برا خواب:</b> بائیں جانب تین بار تھوکریں، "اعوذ باللہ" پڑھیں اور کسی کو نہ بتائیں۔</li>
+                    <li><b>صدقہ:</b> ناگہانی پریشانی دور کرنے کے لیے صدقہ دیں۔</li>
+                    <li>تعبیر کا اصل علم اللہ پاک ہی کے پاس ہے۔</li>
+                `;
+            } else {
+                etiquetteList.innerHTML = `
+                    <li><b>Good Dreams:</b> Consider it a glad tidings from God and share only with loved ones.</li>
+                    <li><b>Bad Dreams:</b> Seek refuge in God, spit dryly 3 times to your left, and do not disclose it.</li>
+                    <li><b>Charity:</b> Give voluntary charity (Sadaqah) for protection.</li>
+                    <li>Ultimate knowledge of the unseen rests with God alone.</li>
+                `;
+            }
+        }
+
+        // SAMPLE DREAM FILLER
+        function fillSampleDream(keyword) {
+            const samples = {
+                'پانی': 'میں نے دیکھا کہ میں ایک خوبصورت شفاف ندی کے کنارے کھڑا ہوں اور صاف ستھرا پانی پی رہا ہوں۔',
+                'شیر': 'خواب میں ایک بڑا شیر دیکھ کر میں خوفزدہ ہوا لیکن شیر خاموشی سے میرے پاس سے گزر گیا۔',
+                'سانپ': 'میں نے ایک کالا سانپ اپنے گھر کے صحن میں دیکھا جسے میں نے چھڑی سے بھگا دیا۔',
+                'اڑنا': 'میں آسمان پر پرندوں کی طرح آزادانہ اڑ رہا تھا اور نیچے سبزہ زار دیکھ رہا تھا۔',
+                'بارش': 'ہلکی دلکش بارش ہو رہی تھی اور میں اس میں دعائیں مانگ رہا تھا۔',
+                'سونا': 'مجھے زمین سے سونے کے قدیم سکے اور خزانہ ملا۔',
+                'دانت گرنا': 'میں نے محسوس کیا کہ میرا ایک دانت بغیر کسی درد کے ٹوٹ کر ہاتھ میں آ گیا۔'
+            };
+            document.getElementById('dreamText').value = samples[keyword] || `میں نے خواب میں ${keyword} دیکھا۔`;
+        }
+
+        // MAIN DREAM FORM SUBMISSION HANDLER
+        async function handleDreamSubmit(e) {
+            e.preventDefault();
+            const dreamText = document.getElementById('dreamText').value.trim();
+            const perspective = document.getElementById('perspectiveSelect').value;
+            const outputLang = document.getElementById('outputLangSelect').value;
+
+            if (!dreamText) return;
+
+            // Show Loading State
+            document.getElementById('dreamForm').classList.add('opacity-50', 'pointer-events-none');
+            document.getElementById('loadingCard').classList.remove('hidden');
+            document.getElementById('resultCard').classList.add('hidden');
+
+            // Check if Custom Gemini API Key Exists
+            const apiKey = localStorage.getItem('gemini_api_key') || '';
+
+            try {
+                let resultData;
+                if (apiKey) {
+                    resultData = await fetchGeminiInterpretation(dreamText, perspective, outputLang, apiKey);
+                } else {
+                    // Use Fallback Simulation Engine
+                    await new Promise(r => setTimeout(r, 1800)); // Realistic latency simulation
+                    resultData = generateFallbackInterpretation(dreamText, perspective, outputLang);
+                }
+
+                currentInterpretation = resultData;
+                renderResult(resultData, outputLang, perspective);
+                saveToHistory(resultData);
+
+            } catch (error) {
+                console.error("Gemini API Error, switching to fallback mode:", error);
+                const fallbackData = generateFallbackInterpretation(dreamText, perspective, outputLang);
+                currentInterpretation = fallbackData;
+                renderResult(fallbackData, outputLang, perspective);
+                saveToHistory(fallbackData);
+            } finally {
+                document.getElementById('dreamForm').classList.remove('opacity-50', 'pointer-events-none');
+                document.getElementById('loadingCard').classList.add('hidden');
+            }
+        }
+
+        // FETCH FROM GEMINI API
+        async function fetchGeminiInterpretation(dream, perspective, lang, apiKey) {
+            const systemPrompt = `Act as an expert Islamic scholar (specialized in Ibn Sirin dream interpretation) and psychological analyst. 
+            Provide structured JSON response for the given dream.
+            Perspective requested: ${perspective}. 
+            Output Language requested: ${lang === 'ur' ? 'Urdu' : 'English'}.
+            
+            JSON format required:
+            {
+                "summary": "Brief 1-line summary",
+                "symbols": ["Symbol1", "Symbol2", "Symbol3"],
+                "interpretation": ["Paragraph 1 detailed explanation", "Paragraph 2 context"],
+                "advice": ["Spiritual step 1", "Recommended Dua or action"]
+            }`;
+
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: `Dream: ${dream}` }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+                generationConfig: {
+                    responseMimeType: "application/json"
+                }
+            };
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await response.json();
+            const textResponse = data.candidates?.[0]?.content?.parts?.[0]?.text;
+            return JSON.parse(textResponse);
+        }
+
+        // FALLBACK SIMULATION ENGINE (FOR KEYWORD-BASED DETAILED INTERPRETATIONS)
+        function generateFallbackInterpretation(dream, perspective, lang) {
+            const lowerText = dream.toLowerCase();
+            let symbols = [];
+            
+            // Symbol Extraction Logic
+            if (lowerText.includes('پانی') || lowerText.includes('water') || lowerText.includes('river')) symbols.push(lang === 'ur' ? 'پانی (Water)' : 'Water');
+            if (lowerText.includes('شیر') || lowerText.includes('lion')) symbols.push(lang === 'ur' ? 'شیر (Lion)' : 'Lion');
+            if (lowerText.includes('سانپ') || lowerText.includes('snake')) symbols.push(lang === 'ur' ? 'سانپ (Snake)' : 'Snake');
+            if (lowerText.includes('بارش') || lowerText.includes('rain')) symbols.push(lang === 'ur' ? 'بارش (Rain)' : 'Rain');
+            if (lowerText.includes('اڑنا') || lowerText.includes('fly') || lowerText.includes('flying')) symbols.push(lang === 'ur' ? 'اڑنا (Flying)' : 'Flying');
+            if (lowerText.includes('سونا') || lowerText.includes('gold') || lowerText.includes('روپیہ')) symbols.push(lang === 'ur' ? 'سونا/دولت (Gold)' : 'Gold/Wealth');
+            if (lowerText.includes('دانت') || lowerText.includes('teeth')) symbols.push(lang === 'ur' ? 'دانت (Teeth)' : 'Teeth');
+
+            if (symbols.length === 0) {
+                symbols.push(lang === 'ur' ? 'عام علامت (General Symbol)' : 'General Vision');
+            }
+
+            let isUrdu = (lang === 'ur');
+
+            if (perspective === 'islamic') {
+                return {
+                    summary: isUrdu 
+                        ? `خواب میں ${symbols.join('، ')} کے علامتی مشاھدے کی اسلامی تعبیر۔`
+                        : `Islamic interpretation regarding vision of ${symbols.join(', ')}.`,
+                    symbols: symbols,
+                    interpretation: [
+                        isUrdu 
+                            ? `حضرت ابنِ سیرین (رحمۃ اللہ علیہ) اور دیگر کبار مفسرینِ خواب کے اصولوں کے مطابق، اس خواب میں ظاہر ہونے والی علامات خیر و برکت اور حالات میں بہتری کی طرف اشارہ کرتی ہیں۔`
+                            : `According to classic scholars like Hazrat Ibn Sirin (R.A), the symbols present in this dream reflect spiritual tidings, personal reflection, and life changes.`,
+                        isUrdu
+                            ? `اگر آپ نے صاف پانی، بارش یا بلندی دیکھی ہے تو یہ علمی، معاشی، یا روحانی ترقی کا باعث ہے۔ تاہم اگر کوئی خوفناک عنصر نظر آیا ہو تو وہ شیطان کی طرف سے محض وسوسہ ہو سکتا ہے۔`
+                            : `Clear water, rain, or ascending height typically signifies purity, knowledge, or relief from hardship. Disturbing elements often represent mere passing anxiety.`
+                    ],
+                    advice: [
+                        isUrdu ? "نماز کی پابندی کریں اور صبح و شام کے مسنون اذکار کا اہتمام رکھیں۔" : "Maintain consistency in daily prayers and morning/evening supplications.",
+                        isUrdu ? "اگر خواب خوشگوار تھا تو اللہ کا شکر ادا کریں اور ہر شخص سے بیان نہ کریں۔" : "If it was a pleasant dream, express gratitude to God and share only with well-wishers."
+                    ]
+                };
+            } else {
+                return {
+                    summary: isUrdu
+                        ? `نفسیاتی نقطہ نظر سے خواب کے اندر ${symbols.join('، ')} کا تجزیہ۔`
+                        : `Psychological evaluation of dream symbols: ${symbols.join(', ')}.`,
+                    symbols: symbols,
+                    interpretation: [
+                        isUrdu
+                            ? `جدید نفسیات اور کارل جنگ (Carl Jung) کے نظریات کے مطابق خواب ہمارے لاشعور (Subconscious) کی عکاسی کرتے ہیں۔`
+                            : `According to modern psychological perspectives, dream imagery is a direct processing mechanism of your subconscious mind.`,
+                        isUrdu
+                            ? `یہ خواب آپ کی زندگی میں موجود حالیہ جذباتی کیفیات، خواہشات یا ذہنی تناؤ کا مظہر ہو سکتا ہے۔`
+                            : `This dream likely reflects your current emotional state, suppressed thoughts, or subconscious aspirations regarding daily experiences.`
+                    ],
+                    advice: [
+                        isUrdu ? "روزمرہ کے معمولات میں ذہنی سکون اور مراقبے کے لیے وقت نکالیں۔" : "Practice daily mindfulness and maintain a stress-free balance.",
+                        isUrdu ? "اپنے جذباتی تناؤ کو ڈائری میں لکھ کر حل کرنے کی کوشش کریں۔" : "Journal your key thoughts to organize subconscious feelings effectively."
+                    ]
+                };
+            }
+        }
+
+        // RENDER RESULT DATA INTO DOM
+        function renderResult(data, lang, perspective) {
+            const isUrdu = (lang === 'ur');
+            
+            document.getElementById('resPerspectiveTag').innerText = perspective === 'islamic' 
+                ? (isUrdu ? 'اسلامی نقطہ نظر' : 'Islamic Perspective') 
+                : (isUrdu ? 'عمومی و نفسیاتی' : 'Psychological');
+
+            document.getElementById('resLangTag').innerText = isUrdu ? 'اردو' : 'English';
+            document.getElementById('resDreamSummary').innerText = `"${data.summary}"`;
+
+            // Render Symbols
+            const symbolsContainer = document.getElementById('resSymbolsList');
+            symbolsContainer.innerHTML = '';
+            data.symbols.forEach(sym => {
+                const pill = document.createElement('span');
+                pill.className = 'px-3 py-1 rounded-full bg-amberGold-500/10 border border-amberGold-500/30 text-xs font-medium text-amberGold-300';
+                pill.innerText = `✨ ${sym}`;
+                symbolsContainer.appendChild(pill);
+            });
+
+            // Render Interpretation Paragraphs
+            const bodyContainer = document.getElementById('resInterpretationBody');
+            bodyContainer.innerHTML = '';
+            data.interpretation.forEach(para => {
+                const p = document.createElement('p');
+                p.innerText = para;
+                bodyContainer.appendChild(p);
+            });
+
+            // Render Advice List
+            const adviceContainer = document.getElementById('resAdviceText');
+            adviceContainer.innerHTML = '';
+            data.advice.forEach(adv => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center gap-2';
+                div.innerHTML = `<i class="fa-solid fa-circle-check text-emerald-400 text-xs"></i> <span>${adv}</span>`;
+                adviceContainer.appendChild(div);
+            });
+
+            // Reveal Result Card & Scroll into view
+            const resultCard = document.getElementById('resultCard');
+            resultCard.classList.remove('hidden');
+            resultCard.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // COPY INTERPRETATION TO CLIPBOARD
+        function copyInterpretation() {
+            if (!currentInterpretation) return;
+            const textToCopy = `
+تعبیرِ خواب (Dream Interpretation)
+--------------------------------
+خلاصہ: ${currentInterpretation.summary}
+تفصیل: ${currentInterpretation.interpretation.join(' ')}
+            `.trim();
+
+            const textarea = document.createElement('textarea');
+            textarea.value = textToCopy;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            alert(i18n[currentLang].copySuccess);
+        }
+
+        // SHARE INTERPRETATION
+        function shareInterpretation() {
+            if (navigator.share && currentInterpretation) {
+                navigator.share({
+                    title: 'تعبیرِ خواب - AI Dream Interpreter',
+                    text: `خواب کی تعبیر: ${currentInterpretation.summary}`,
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                copyInterpretation();
+            }
+        }
+
+        // RESET FORM FOR NEW DREAM
+        function resetDreamForm() {
+            document.getElementById('dreamText').value = '';
+            document.getElementById('resultCard').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // LOCAL STORAGE HISTORY MANAGEMENT
+        function saveToHistory(item) {
+            let history = JSON.parse(localStorage.getItem('dream_history') || '[]');
+            history.unshift({
+                date: new Date().toLocaleDateString(),
+                summary: item.summary,
+                data: item
+            });
+            if (history.length > 10) history.pop(); // Keep last 10
+            localStorage.setItem('dream_history', JSON.stringify(history));
+        }
+
+        function toggleHistoryModal() {
+            const modal = document.getElementById('historyModal');
+            modal.classList.toggle('hidden');
+
+            if (!modal.classList.contains('hidden')) {
+                renderHistoryList();
+            }
+        }
+
+        function renderHistoryList() {
+            const container = document.getElementById('historyContainer');
+            const history = JSON.parse(localStorage.getItem('dream_history') || '[]');
+
+            if (history.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-500 text-center py-6">کوئی سابقہ ریکارڈ نہیں ملا۔</p>`;
+                return;
+            }
+
+            container.innerHTML = '';
+            history.forEach((h, index) => {
+                const div = document.createElement('div');
+                div.className = 'p-3 rounded-xl bg-night-800 border border-gray-700/80 hover:border-amberGold-500/50 cursor-pointer transition flex items-center justify-between gap-3';
+                div.onclick = () => {
+                    currentInterpretation = h.data;
+                    renderResult(h.data, currentLang, 'islamic');
+                    toggleHistoryModal();
+                };
+                div.innerHTML = `
+                    <div>
+                        <span class="text-[10px] text-amberGold-400 font-sans">${h.date}</span>
+                        <p class="text-xs text-gray-200 line-clamp-1">${h.summary}</p>
+                    </div>
+                    <i class="fa-solid fa-chevron-left text-xs text-gray-500"></i>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function clearHistory() {
+            localStorage.removeItem('dream_history');
+            renderHistoryList();
+        }
+
+        // API KEY MODAL MANAGEMENT
+        function toggleApiModal() {
+            document.getElementById('apiModal').classList.toggle('hidden');
+        }
+
+        function saveApiKey() {
+            const key = document.getElementById('userApiKeyInput').value.trim();
+            if (key) {
+                localStorage.setItem('gemini_api_key', key);
+                alert(currentLang === 'ur' ? "API Key کامیابی سے محفوظ ہو گئی ہے!" : "API Key saved successfully!");
+            }
+            toggleApiModal();
+        }
+
+        function clearApiKey() {
+            localStorage.removeItem('gemini_api_key');
+            document.getElementById('userApiKeyInput').value = '';
+            alert(currentLang === 'ur' ? "API Key حذف کر دی گئی ہے۔ سمیلیٹر موڈ فعال ہو گیا ہے۔" : "API Key removed. Simulator active.");
+            toggleApiModal();
+        }
+
+        function loadApiKey() {
+            const key = localStorage.getItem('gemini_api_key');
+            if (key) {
+                document.getElementById('userApiKeyInput').value = key;
+            }
+        }
+    </script>
+</body>
+</html>
